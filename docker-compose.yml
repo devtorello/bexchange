@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    hostname: redis
+    ports:
+      - 6379:6379
+  deno-app:
+    container_name: deno-app
+    build: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - redis
+  cotacao-app:
+    image: zanfranceschi/desafio-01-cotacoes
+    container_name: cotacao-app
+    ports:
+      - 8080:80
