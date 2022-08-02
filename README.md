@@ -6,7 +6,7 @@ This is an API that should retrieve the best exchange value between three differ
 * Service B: a delayed API that should return the exchange value a few seconds after the request;
 * Service C: an asynchronous API that should deliver the exchange value to a callback.
 
-The idea between the implementation is to wait for all of the responses before returning anything to the requester/user. The trick here was to get the response from the callback in runtime - not waiting for the callback response for more than five seconds.
+The idea behind the implementation is to wait for all of the responses before returning anything to the requester/user. The trick here was to get the response from the callback in runtime - not waiting for the callback response for more than five seconds.
 
 This challenge was based on [Zanfranceschi's article](https://dev.to/zanfranceschi/desafio-integracao-com-apis-4jco). You can find more information about it there.
 
