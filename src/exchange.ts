@@ -1,7 +1,7 @@
 import { API_URL, CALLBACK_URL } from './consts.ts';
 import { waitForServiceC } from './helpers.ts';
 
-export async function firstExchange (currency: string): Promise<number> {
+export async function firstExchange(currency: string): Promise<number> {
 	const response = await fetch(
 		`${API_URL}/servico-a/cotacao?moeda=${currency}`,
 		{ method: 'GET' },
@@ -10,7 +10,7 @@ export async function firstExchange (currency: string): Promise<number> {
 	return cotacao;
 }
 
-export async function secondExchange (currency: string): Promise<number> {
+export async function secondExchange(currency: string): Promise<number> {
 	const response = await fetch(
 		`${API_URL}/servico-b/cotacao?curr=${currency}`,
 		{ method: 'GET' },
@@ -19,7 +19,7 @@ export async function secondExchange (currency: string): Promise<number> {
 	return cotacao.valor / cotacao.fator;
 }
 
-export async function thirdExchange (currency: string): Promise<number> {
+export async function thirdExchange(currency: string): Promise<number> {
 	const body = { tipo: currency, callback: CALLBACK_URL };
 	const response = await fetch(`${API_URL}/servico-c/cotacao`, {
 		method: 'POST',
